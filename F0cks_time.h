@@ -49,5 +49,6 @@ int8_t F0cks_Time_Clock_Init(Time_Clock_HandleTypeDef *handler, Time_Clock_Confi
 int8_t F0cks_Time_Clock_Reset(Time_Clock_HandleTypeDef *clock);
 int8_t F0cks_Time_Init(Time_HandleTypeDef *handler, Time_Clock_HandleTypeDef *clock, uint8_t clockNumber );
 int8_t F0cks_Time_Update(Time_HandleTypeDef *handler);
+int8_t F0cks_Time_Compare(Time_Clock_HandleTypeDef *handler, Time_Clock_HandleTypeDef time );
 
 #endif //F0CKS_TIME_H

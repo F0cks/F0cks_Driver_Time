@@ -73,3 +73,33 @@ int8_t F0cks_Time_Update(Time_HandleTypeDef *handler)
 
 	return error;
 }
+
+/* Check if clock is over (or equal) a specific time */
+int8_t F0cks_Time_Compare(Time_Clock_HandleTypeDef *handler, Time_Clock_HandleTypeDef time )
+{
+	int8_t error = -1;
+
+	Time_Clock_HandleTypeDef *p = handler;
+	uint32_t secondsHandler = 0;
+	uint16_t secondsTime    = 0;
+
+	/* Convert all in seconds */
+	secondsHandler = p->second + p->minute*60 +p->hour*3600;
+	secondsTime    = time.second + time.minute*60 +time.hour*3600;
+
+	/* Compare */
+	if( secondsHandler >= secondsTime)
+	{
+		/* clk is over or equal specified time */
+		error = 1;
+	}
+	else if( secondsHandler < secondsTime)
+	{
+		/* clk is under specified time */
+		error = 0;
+	}
+
+	/* Error */
+	return error;
+}
+
